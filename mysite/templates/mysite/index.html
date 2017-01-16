@@ -1,0 +1,10 @@
+<html>
+    <body>
+        {% if user.is_authenticated %}
+        <p>Welcome {{ user.username }} -- <a href="/logout">Logout</a></p>
+        {% else %}
+        <p><a href="/login">Login</a></p>
+        {% endif %}
+        <p><a href='{% url "polls:index" %}'>Polls</a></p>
+    </body>
+</html>
