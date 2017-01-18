@@ -4,6 +4,18 @@
         <p>Welcome {{ user.username }} -- <a href="/logout">Logout</a></p>
         {% else %}
         <p><a href="/login">Login</a></p>
+        <p>Or</p>
+        <h2>Sign Up</h2>
+        {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+        {% endif %}
+        <form action="/signup/" method="post">
+            {% csrf_token %}
+            Username: <input type="text" name="username"><br/>
+            Email: <input type="text" name="email"><br/>
+            Password: <input type="password" name="psw"><br/>
+            Password again i guess: <input type="password" name="psw2"><br/>
+            <input type="submit" value="Sign Up">
         {% endif %}
         <p><a href='{% url "polls:index" %}'>Polls</a></p>
     </body>
