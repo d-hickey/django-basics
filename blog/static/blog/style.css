@@ -1,0 +1,34 @@
+body {
+    background-color: #507293;
+    width: 1440px;
+}
+
+#nav {
+    background-color: #9090A5;
+    width: 70%;
+    margin-left: 15%;
+    margin-bottom: 20px;
+}
+
+#latest-posts {
+    text-align: center;
+    width: 70%;
+    margin-left: 15%;
+}
+
+table  {
+    width: 50%;
+    margin-left: 25%;
+    text-align: center;
+}
+
+#latest-posts table {
+    border-collapse:separate;
+    border-spacing: 10px 50px;
+}
+
+.post {
+    background-color: white;
+    margin: 20px;
+    padding: 20px;
+}

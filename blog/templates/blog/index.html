@@ -1,18 +1,28 @@
-<html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
 {% if recent %}
-<body style="width:1400">
-<div id="latest-posts" style="text-align:center; width:70%; margin-left:15%">
+<div id="latest-posts">
     {% for post in recent %}
         <div class="post">
-            <p><a href="{% url 'blog:user' post.author.username %}">{{ post.author.username }}</a></p>
-            <p><a href="{% url 'blog:post' post.author.username post.id%}">{{ post.title_text }}</a></p>
-            <p>{{ post.pub_date }}</p>
-            <p>{{ post.body_text }}</p>
+            <table>
+            <thead>
+            <tr>
+            <th><p><a href="{% url 'blog:user' post.author.username %}">{{ post.author.username }}</a></p></th>
+            <th><p><a href="{% url 'blog:post' post.author.username post.id%}">{{ post.title_text }}</a></p></th>
+            <th><p>{{ post.pub_date }}</p></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td colspan="3"><p>{{ post.body_text }}</p></td>
+            </tr>
+            </tbody>
+            </table>
         </div>
     {% endfor %}
 </div>
 {% else %}
 <p>No posts have been made. Like ever.</p>
 {% endif %}
-</body>
-</html>
+{% endblock %}

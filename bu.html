@@ -1,0 +1,24 @@
+<html>
+<head>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/style.css' %}" />
+
+</head>
+{% if recent %}
+<body>
+<div id="latest-posts">
+    {% for post in recent %}
+        <div class="post">
+            <p><a href="{% url 'blog:user' post.author.username %}">{{ post.author.username }}</a></p>
+            <p><a href="{% url 'blog:post' post.author.username post.id%}">{{ post.title_text }}</a></p>
+            <p>{{ post.pub_date }}</p>
+            <p>{{ post.body_text }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% else %}
+<p>No posts have been made. Like ever.</p>
+{% endif %}
+</body>
+</html>
