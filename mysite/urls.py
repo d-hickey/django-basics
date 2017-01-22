@@ -28,4 +28,5 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^signup/$', views.signup, name="signup"),
+    url(r'^time/', include('timetracker.urls')),
 ]
